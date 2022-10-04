@@ -11,21 +11,28 @@ const spDefence = document.querySelector(".sp-defence");
 const speed = document.querySelector(".speed");
 const ability1 = document.querySelector(".ability1");
 const ability2 = document.querySelector(".ability2");
-
+const error = document.querySelector(".error");
 form.addEventListener("submit", function (e) {
-  //   input.textContent = "";
   e.preventDefault();
-  console.log(`Form submitted`, input.value);
-  main.style.display = "block";
+  //   console.log(`Form submitted`, input.value);
 
   (async function handleClick() {
+    const inputValue = input.value.toLowerCase().trim();
+
     try {
       const response = await fetch(
-        `https://pokeapi.co/api/v2/pokemon/${input.value}`
+        `https://pokeapi.co/api/v2/pokemon/${inputValue}`
       );
-
       const data = await response.json();
-      console.log(data);
+      //   console.log(data);
+      if (!input.value) {
+        main.style.display = "none";
+        // error.style.display = "block";
+        // error.textContent = "Please enter some Value";
+        alert("No Input Found");
+        throw new Error("No input found");
+      }
+      main.style.display = "block";
       h1.textContent = data.name.toUpperCase();
       hp.textContent = data.stats[0].base_stat;
       attack.textContent = data.stats[1].base_stat;
@@ -38,9 +45,8 @@ form.addEventListener("submit", function (e) {
       ability2.textContent = data.abilities[1].ability.name;
       if (response.status === 201) alert("Thanks your profile has been saved");
     } catch (error) {
-      console.log("🚀 ~ handleClick ~ error", error.message);
+      console.log("Error", error.message);
     }
+    input.value = "";
   })();
-
-  // https://pokeapi.co/api/v2/pokemon/ditto
 });
