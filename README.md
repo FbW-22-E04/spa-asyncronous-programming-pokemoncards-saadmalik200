@@ -1,8 +1,14 @@
 # Pokemon Cards
 
+## Link
+
+- Live Site URL: [https://saadmalik200.github.io/fetch-a-pokemon-using-api/](https://saadmalik200.github.io/fetch-a-pokemon-using-api/)
+
+## Task
+
 **This :cartwheeling: Exercise :weight_lifting: is to display a pokemon card with data retrieved via the Pokemon Api.**
 
-[Pokemon Api](https://pokeapi.co/) 
+[Pokemon Api](https://pokeapi.co/)
 
 1. The User should be able to search for different Pokemons via the input field.
 2. Once the button is clicked, the data for the requested pokemon to display in your card should be fetched. Attention if the input field has no entry, but the button was already clicked, inform the user about it.
