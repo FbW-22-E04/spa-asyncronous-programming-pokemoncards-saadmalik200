@@ -40,7 +40,7 @@ form.addEventListener("submit", function (e) {
       spAttack.textContent = data.stats[3].base_stat;
       spDefence.textContent = data.stats[4].base_stat;
       speed.textContent = data.stats[5].base_stat;
-      img.src = data.sprites.back_default;
+      img.src = data.sprites.front_default;
       ability1.textContent = data.abilities[0].ability.name;
       ability2.textContent = data.abilities[1].ability.name;
       if (response.status === 201) alert("Thanks your profile has been saved");
